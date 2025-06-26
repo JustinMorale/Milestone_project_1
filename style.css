@@ -1,0 +1,74 @@
+/* Reset default spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Navigation menu */
+.main-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.main-menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: inline-block;
+}
+
+.main-menu li a:hover {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+/* Main layout */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #888;
+    text-align: left;
+    background-color: white;
+}
+
+/* Images */
+img {
+    border: 2px solid #aaa;
+    margin-top: 10px;
+    max-width: 100%;
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    font-size: 0.9em;
+    text-align: center;
+}
