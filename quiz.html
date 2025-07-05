@@ -25,35 +25,34 @@
       let total = 3;
       let feedback = [];
 
-      if (document.getElementById("q1a").checked) {
+      if (document.getElementById("q1c").checked) {
         score++;
-        feedback.push("Q1: Correct (HyperText Markup Language)");
+        feedback.push("Q1: Correct (Domain Name System)");
       } else {
-        feedback.push("Q1: Wrong. Correct: HyperText Markup Language");
+        feedback.push("Q1: Wrong. Correct: Domain Name System");
       }
 
-      if (document.getElementById("q2b").checked) {
+      if (document.getElementById("q2c").checked) {
         score++;
-        feedback.push("Q2: Correct (CSS)");
+        feedback.push("Q2: Correct (Translates domain names to IP addresses)");
       } else {
-        feedback.push("Q2: Wrong. Correct: CSS");
+        feedback.push("Q2: Wrong. Correct: Translates domain names to IP addresses");
       }
 
       const q3 = document.getElementById("q3").value.trim().toLowerCase();
-      if (q3 === "domain name system") {
+      if (q3 === "ip address" || q3 === "ip addresses") {
         score++;
-        feedback.push("Q3: Correct (Domain Name System)");
+        feedback.push("Q3: Correct (IP address)");
       } else {
-        feedback.push("Q3: Wrong. Correct: Domain Name System");
+        feedback.push("Q3: Wrong. Correct: IP address");
       }
 
-      // Results
       const percent = (score / total) * 100;
       const passed = percent >= 60;
       const resultText = `
         <h3>Result</h3>
         <p><strong>Score:</strong> ${score}/${total} (${percent.toFixed(0)}%)</p>
-        <p><strong>Status:</strong> <span class="${passed ? 'correct' : 'incorrect'}">${passed ? 'Pass ' : 'Fail '}</span></p>
+        <p><strong>Status:</strong> <span class="${passed ? 'correct' : 'incorrect'}">${passed ? 'Pass' : 'Fail'}</span></p>
         <h4>Answers:</h4>
         <ul>${feedback.map(item => `<li>${item}</li>`).join('')}</ul>
       `;
@@ -78,19 +77,19 @@
   <main>
     <form onsubmit="event.preventDefault(); checkAnswers();">
       <!-- Q1 -->
-      <h3>1. What does HTML stand for?</h3>
-      <label><input type="radio" name="q1" id="q1a"> HyperText Markup Language</label><br>
-      <label><input type="radio" name="q1"> HighText Machine Language</label><br>
-      <label><input type="radio" name="q1"> HyperTool Multi Language</label><br>
+      <h3>1. What does DNS stand for?</h3>
+      <label><input type="radio" name="q1" id="q1a"> Domain Network Server</label><br>
+      <label><input type="radio" name="q1" id="q1b"> Data Name Service</label><br>
+      <label><input type="radio" name="q1" id="q1c"> Domain Name System</label><br>
 
       <!-- Q2 -->
-      <h3>2. What is used for styling a webpage?</h3>
-      <label><input type="radio" name="q2"> HTML</label><br>
-      <label><input type="radio" name="q2" id="q2b"> CSS</label><br>
-      <label><input type="radio" name="q2"> JavaScript</label><br>
+      <h3>2. What is the primary purpose of DNS?</h3>
+      <label><input type="radio" name="q2" id="q2a"> Encrypts data across the internet</label><br>
+      <label><input type="radio" name="q2" id="q2b"> Stores email messages</label><br>
+      <label><input type="radio" name="q2" id="q2c"> Translates domain names to IP addresses</label><br>
 
       <!-- Q3 -->
-      <h3>3. Fill in the blank: DNS stands for <em>______</em>.</h3>
+      <h3>3. Fill in the blank: A DNS server converts a domain name like example.com into an <em>______</em>.</h3>
       <input type="text" id="q3" placeholder="Type your answer here"><br><br>
 
       <button type="submit">Submit Quiz</button>
@@ -102,4 +101,5 @@
   <footer>&copy; 2025 My Website</footer>
 </body>
 </html>
+
 
