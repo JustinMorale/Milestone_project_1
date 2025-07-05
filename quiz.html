@@ -4,25 +4,64 @@
   <meta charset="UTF-8">
   <title>Quiz</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Simple script to check quiz answers -->
+  <style>
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #eef5ee;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
   <script>
     function checkAnswers() {
       let score = 0;
+      let total = 3;
+      let feedback = [];
 
-      // Check if the first question is correct
-      if (document.getElementById("q1a").checked) score++;
+      if (document.getElementById("q1a").checked) {
+        score++;
+        feedback.push("Q1: Correct (HyperText Markup Language)");
+      } else {
+        feedback.push("Q1: Wrong. Correct: HyperText Markup Language");
+      }
 
-      // Check if the second question is correct
-      if (document.getElementById("q2b").checked) score++;
+      if (document.getElementById("q2b").checked) {
+        score++;
+        feedback.push("Q2: Correct (CSS)");
+      } else {
+        feedback.push("Q2: Wrong. Correct: CSS");
+      }
 
-      // Show the result
-      alert("Your score: " + score + "/2");
+      const q3 = document.getElementById("q3").value.trim().toLowerCase();
+      if (q3 === "domain name system") {
+        score++;
+        feedback.push("Q3: Correct (Domain Name System)");
+      } else {
+        feedback.push("Q3: Wrong. Correct: Domain Name System");
+      }
+
+      // Results
+      const percent = (score / total) * 100;
+      const passed = percent >= 60;
+      const resultText = `
+        <h3>Result</h3>
+        <p><strong>Score:</strong> ${score}/${total} (${percent.toFixed(0)}%)</p>
+        <p><strong>Status:</strong> <span class="${passed ? 'correct' : 'incorrect'}">${passed ? 'Pass ' : 'Fail '}</span></p>
+        <h4>Answers:</h4>
+        <ul>${feedback.map(item => `<li>${item}</li>`).join('')}</ul>
+      `;
+      document.getElementById("result").innerHTML = resultText;
     }
   </script>
 </head>
 <body>
-  <!-- Page header with nav -->
   <header>
     <h1>Introduction to DNS (Domain Name System)</h1>
     <nav>
@@ -36,24 +75,31 @@
     </nav>
   </header>
 
-  <!-- Quiz content -->
   <main>
     <form onsubmit="event.preventDefault(); checkAnswers();">
+      <!-- Q1 -->
       <h3>1. What does HTML stand for?</h3>
       <label><input type="radio" name="q1" id="q1a"> HyperText Markup Language</label><br>
       <label><input type="radio" name="q1"> HighText Machine Language</label><br>
       <label><input type="radio" name="q1"> HyperTool Multi Language</label><br>
 
+      <!-- Q2 -->
       <h3>2. What is used for styling a webpage?</h3>
       <label><input type="radio" name="q2"> HTML</label><br>
       <label><input type="radio" name="q2" id="q2b"> CSS</label><br>
-      <label><input type="radio" name="q2"> JavaScript</label><br><br>
+      <label><input type="radio" name="q2"> JavaScript</label><br>
 
-      <button type="submit">Submit</button>
+      <!-- Q3 -->
+      <h3>3. Fill in the blank: DNS stands for <em>______</em>.</h3>
+      <input type="text" id="q3" placeholder="Type your answer here"><br><br>
+
+      <button type="submit">Submit Quiz</button>
     </form>
+
+    <div id="result" class="result"></div>
   </main>
 
-  <!-- Footer -->
   <footer>&copy; 2025 My Website</footer>
 </body>
 </html>
+
