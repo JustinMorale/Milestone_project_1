@@ -65,7 +65,6 @@
         feedback.push("Q5: Wrong. Correct: Port 53");
       }
 
-      
       const percent = (score / total) * 100;
       const passed = percent >= 60;
       const resultText = `
@@ -76,6 +75,13 @@
         <ul>${feedback.map(item => `<li>${item}</li>`).join('')}</ul>
       `;
       document.getElementById("result").innerHTML = resultText;
+      document.getElementById("restartBtn").style.display = "inline-block";
+    }
+
+    function resetQuiz() {
+      document.getElementById("quizForm").reset();
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("restartBtn").style.display = "none";
     }
   </script>
 </head>
@@ -94,7 +100,7 @@
   </header>
 
   <main>
-    <form onsubmit="event.preventDefault(); checkAnswers();">
+    <form id="quizForm" onsubmit="event.preventDefault(); checkAnswers();">
       <!-- Q1 -->
       <h3>1. What does DNS stand for?</h3>
       <label><input type="radio" name="q1" id="q1a"> Domain Network Server</label><br>
@@ -125,6 +131,7 @@
       <label><input type="radio" name="q5" id="q5c"> Port 443</label><br><br>
 
       <button type="submit">Submit Quiz</button>
+      <button type="button" id="restartBtn" onclick="resetQuiz()" style="display: none;">Restart Quiz</button>
     </form>
 
     <div id="result" class="result"></div>
@@ -133,6 +140,3 @@
   <footer>&copy; 2025 My Website</footer>
 </body>
 </html>
-
-
-
