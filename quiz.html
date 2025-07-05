@@ -22,7 +22,7 @@
   <script>
     function checkAnswers() {
       let score = 0;
-      let total = 3;
+      let total = 5;
       let feedback = [];
 
       if (document.getElementById("q1c").checked) {
@@ -47,6 +47,25 @@
         feedback.push("Q3: Wrong. Correct: IP address");
       }
 
+      const a = document.getElementById("q4a").checked;
+      const b = document.getElementById("q4b").checked;
+      const c = document.getElementById("q4c").checked;
+      const d = document.getElementById("q4d").checked;
+      if (a && b && !c && d) {
+        score++;
+        feedback.push("Q4: Correct (TCP, UDP, HTTPS)");
+      } else {
+        feedback.push("Q4: Wrong. Correct: TCP, UDP, HTTPS");
+      }
+
+      if (document.getElementById("q5b").checked) {
+        score++;
+        feedback.push("Q5: Correct (Port 53)");
+      } else {
+        feedback.push("Q5: Wrong. Correct: Port 53");
+      }
+
+      
       const percent = (score / total) * 100;
       const passed = percent >= 60;
       const resultText = `
@@ -92,6 +111,19 @@
       <h3>3. Fill in the blank: A DNS server converts a domain name like example.com into an <em>______</em>.</h3>
       <input type="text" id="q3" placeholder="Type your answer here"><br><br>
 
+      <!-- Q4 -->
+      <h3>4. Which of the following are protocols used in DNS communication? (Select all that apply)</h3>
+      <label><input type="checkbox" id="q4a"> TCP</label><br>
+      <label><input type="checkbox" id="q4b"> UDP</label><br>
+      <label><input type="checkbox" id="q4c"> FTP</label><br>
+      <label><input type="checkbox" id="q4d"> HTTPS</label><br>
+
+      <!-- Q5 -->
+      <h3>5. Which port is commonly used for DNS queries?</h3>
+      <label><input type="radio" name="q5" id="q5a"> Port 80</label><br>
+      <label><input type="radio" name="q5" id="q5b"> Port 53</label><br>
+      <label><input type="radio" name="q5" id="q5c"> Port 443</label><br><br>
+
       <button type="submit">Submit Quiz</button>
     </form>
 
@@ -101,5 +133,6 @@
   <footer>&copy; 2025 My Website</footer>
 </body>
 </html>
+
 
 
