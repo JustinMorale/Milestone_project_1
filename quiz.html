@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Simple script to check quiz answers -->
+  <script>
+    function checkAnswers() {
+      let score = 0;
+
+      // Check if the first question is correct
+      if (document.getElementById("q1a").checked) score++;
+
+      // Check if the second question is correct
+      if (document.getElementById("q2b").checked) score++;
+
+      // Show the result
+      alert("Your score: " + score + "/2");
+    }
+  </script>
+</head>
+<body>
+  <!-- Page header with nav -->
+  <header>
+    <h1>Introduction to DNS (Domain Name System)</h1>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="topic1.html">How DNS Works</a></li>
+        <li><a href="topic2.html">DNS vs IP Addresses</a></li>
+        <li><a href="resources.html">References</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Quiz content -->
+  <main>
+    <form onsubmit="event.preventDefault(); checkAnswers();">
+      <h3>1. What does HTML stand for?</h3>
+      <label><input type="radio" name="q1" id="q1a"> HyperText Markup Language</label><br>
+      <label><input type="radio" name="q1"> HighText Machine Language</label><br>
+      <label><input type="radio" name="q1"> HyperTool Multi Language</label><br>
+
+      <h3>2. What is used for styling a webpage?</h3>
+      <label><input type="radio" name="q2"> HTML</label><br>
+      <label><input type="radio" name="q2" id="q2b"> CSS</label><br>
+      <label><input type="radio" name="q2"> JavaScript</label><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer>&copy; 2025 My Website</footer>
+</body>
+</html>
