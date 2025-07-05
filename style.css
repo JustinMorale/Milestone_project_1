@@ -1,74 +1,92 @@
-/* Reset default spacing */
+/* Reset default margins and paddings */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Body styles */
+/* Body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
 }
 
-/* Navigation menu */
+/* Header */
+header {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-bottom: 1rem; /* Added spacing below header */
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #333;
+}
+
+/* Main menu */
 .main-menu {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    background-color: #222;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  margin: 0;
 }
 
 .main-menu li a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    display: inline-block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .main-menu li a:hover {
-    background-color: #444;
-    border-radius: 4px;
+  background-color: #555;
 }
 
-/* Main layout */
+
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  padding: 2rem;
+  background-color: white;
+  margin: 2rem auto;
+  max-width: 800px;
+  border-radius: 8px; /* Added for smoother corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Added subtle shadow */
 }
 
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #888;
-    text-align: left;
-    background-color: white;
-}
-
-/* Images */
-img {
-    border: 2px solid #aaa;
-    margin-top: 10px;
-    max-width: 100%;
-}
-
-/* Footer */
 footer {
-    margin-top: 40px;
-    padding-top: 10px;
-    border-top: 1px solid #ccc;
-    font-size: 0.9em;
-    text-align: center;
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f1f1f;
+  color: white;
+  margin-top: 3rem;
 }
+
+/* Button styling */
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px; 
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+
