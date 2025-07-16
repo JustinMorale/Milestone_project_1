@@ -23,27 +23,50 @@
     <main>
         <section>
             <h2>What is DNS?</h2>
-            <p>DNS stands for Domain Name System. It helps your computer find websites using names instead of numbers.</p>
+            <p>The Domain Name System (DNS) is often called the “phone book of the internet.” It converts human-friendly website names like <strong>google.com</strong> into the IP addresses that computers use to identify each other on the network. Without DNS, we would need to memorize numerical IP addresses to access our favorite sites.</p>
         </section>
 
         <section>
-            <h2>Simple Steps</h2>
+            <h2>How DNS Works</h2>
+            <p>When you enter a web address into your browser, a process begins behind the scenes to resolve that name into an IP address. Here's a step-by-step breakdown:</p>
             <ol>
-                <li>You type a website name like <strong>google.com</strong>.</li>
-                <li>Your computer asks a DNS server to find the IP address.</li>
-                <li>The DNS server sends back the number (IP address).</li>
-                <li>Your browser uses that number to load the website.</li>
+                <li><strong>Stub Resolver:</strong> Your device sends a request to a DNS resolver (usually from your internet provider).</li>
+                <li><strong>Recursive Resolver:</strong> If the resolver doesn’t have the answer cached, it starts querying the DNS hierarchy.</li>
+                <li><strong>Root Server:</strong> The query first goes to a root name server, which directs it to the correct top-level domain (TLD) server (like <code>.com</code>).</li>
+                <li><strong>TLD Server:</strong> The TLD server then points to the authoritative server for the domain (like <code>google.com</code>).</li>
+                <li><strong>Authoritative Server:</strong> This server returns the IP address for the domain name.</li>
+                <li><strong>Response:</strong> The IP is returned to your browser, which uses it to contact the web server and load the website.</li>
             </ol>
+
+            <figure>
+                <img src="dns.jpeg" alt="Client asking DNS server for example.com IP" style="max-width:100%; height:auto;" />
+            </figure>
         </section>
 
         <section>
-            <h2>Why It's Useful</h2>
+            <h2>DNS Record Types</h2>
+            <p>DNS servers hold many types of records:</p>
             <ul>
-                <li>You don’t have to remember long numbers.</li>
-                <li>It makes the internet easier to use.</li>
-                <li>It works behind the scenes quickly.</li>
+                <li><strong>A:</strong> Maps a domain to an IPv4 address.</li>
+                <li><strong>AAAA:</strong> Maps a domain to an IPv6 address.</li>
+                <li><strong>MX:</strong> Directs email to mail servers.</li>
+                <li><strong>CNAME:</strong> Points a domain to another domain name.</li>
+                <li><strong>TXT:</strong> Stores text data (used for security policies like SPF/DKIM).</li>
+                <li><strong>NS:</strong> Lists the nameservers responsible for the domain.</li>
             </ul>
         </section>
+
+        <section>
+            <h2>Why DNS Is Important</h2>
+            <ul>
+                <li>It makes the internet easier to use by hiding complex IP addresses.</li>
+                <li>It allows flexibility: website owners can change servers without changing their domain names.</li>
+                <li>It supports security protocols like DNSSEC to protect data integrity.</li>
+                <li>It enables reliable email delivery, service discovery, and load balancing.</li>
+            </ul>
+        </section>
+
+     
     </main>
 
     <footer>
@@ -51,4 +74,3 @@
     </footer>
 </body>
 </html>
-
