@@ -1,70 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNS vs IP Addresses</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DNS vs IP Addresses</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>DNS vs IP Addresses</h1>
-        <nav>
-            <ul class="main-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="topic1.html">How DNS Works</a></li>
-                <li><a href="topic2.html">DNS vs IP Addresses</a></li>
-                <li><a href="resources.html">References</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>DNS vs IP Addresses</h1>
+    <nav>
+      <ul class="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="topic1.html">How DNS Works</a></li>
+        <li><a href="topic2.html">DNS vs IP Addresses</a></li>
+        <li><a href="resources.html">References</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section>
-            <h2>What is an IP Address?</h2>
-            <p>An IP address is a number that identifies a computer or server on the internet. Example of an IP address <code>192.168.1.1</code>.</p>
-        </section>
+  <main>
+    <section>
+      <h2>Domain Names vs IP Addresses</h2>
+      <p>Domain names are for people; IP addresses are for machines. DNS connects the two, and that indirection unlocks flexibility, portability, and manageability across the Internet.</p>
+    </section>
 
-        <section>
-            <h2>What is DNS?</h2>
-            <p>DNS translates easy-to-remember names like <strong>example.com</strong> into IP addresses like <strong>93.184.216.34</strong>.</p>
-        </section>
+    <section>
+      <h2>Purpose and Role</h2>
+      <ul>
+        <li><strong>Domain Name:</strong> A human-friendly label used to access websites and services. Examples include <code>google.com</code> or <code>mywebsite.org</code>.</li>
+        <li><strong>IP Address:</strong> A numeric identifier used by routers and computers to locate each other on the Internet. Can be IPv4 or IPv6.</li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>Comparison Table</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>DNS</th>
-                        <th>IP Address</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Easy to read?</td>
-                        <td>Yes (example.com)</td>
-                        <td>No (numbers only)</td>
-                    </tr>
-                    <tr>
-                        <td>Main use</td>
-                        <td>Finds the IP address of a site</td>
-                        <td>Connects your device to the site</td>
-                    </tr>
-                    <tr>
-                        <td>Who uses it?</td>
-                        <td>You (without even knowing it)</td>
-                        <td>Your computer</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    </main>
+    <section>
+      <h2>IP Address Formats</h2>
+      <p><strong>IPv4:</strong> 32-bit numeric address like <code>192.0.2.1</code>.</p>
+      <p><strong>IPv6:</strong> 128-bit hexadecimal address like <code>2001:db8::1</code>. IPv6 allows for many more devices but is harder for humans to remember — making DNS essential.</p>
+    </section>
 
-    <footer>
-        <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
-    </footer>
+    <section>
+      <h2>Forward vs Reverse Lookups</h2>
+      <ul>
+        <li><strong>Forward DNS:</strong> Converts a domain name into an IP address using A or AAAA records.</li>
+        <li><strong>Reverse DNS:</strong> Converts an IP address back into a domain name using a PTR record. Useful in logging and email verification.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Why Use Domain Names?</h2>
+      <p>Using a domain name instead of a fixed IP address allows flexibility. Services can move to new servers or hosts without changing the domain name. Updating DNS records is easier than asking users to remember new IP addresses.</p>
+    </section>
+
+    <section>
+      <h2>Multiple IPs per Domain</h2>
+      <p>Domains can resolve to multiple IP addresses. This supports load balancing, redundancy, and global performance improvements (such as with CDNs and failover systems).</p>
+    </section>
+
+    <section>
+      <h2>Anycast and Global Performance</h2>
+      <p>Anycast allows the same IP to be advertised from multiple global locations. Routers deliver requests to the nearest instance. It's used for global DNS and content distribution to improve speed and resilience.</p>
+    </section>
+
+    <section>
+      <h2>Email and DNS</h2>
+      <ul>
+        <li><strong>MX:</strong> Mail Exchange records define where email should be delivered.</li>
+        <li><strong>SPF:</strong> Lists authorized mail servers for a domain.</li>
+        <li><strong>DKIM:</strong> Uses cryptographic signatures to authenticate messages.</li>
+        <li><strong>DMARC:</strong> Sets rules and reporting for SPF/DKIM results.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Security and Trust</h2>
+      <p>DNSSEC adds digital signatures to DNS records. It allows DNS resolvers to verify that responses haven’t been tampered with. This helps prevent attacks such as DNS spoofing or cache poisoning.</p>
+    </section>
+
+    <section>
+      <h2>Best Practices for Your Website</h2>
+      <ul>
+        <li>Use meaningful domain names for each service (e.g., <code>mail.example.com</code>, <code>api.example.com</code>).</li>
+        <li>Set low TTLs during setup and testing, then raise them for stability.</li>
+        <li>Ensure PTR records exist for mail servers to avoid spam filtering issues.</li>
+        <li>Use DNS to manage changes — update A/AAAA records without changing user-facing URLs.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>This is a class project for <a href="https://ksuweb.github.io/IT3203/">IT 3203 Web Development</a>.</p>
+  </footer>
 </body>
 </html>
-
